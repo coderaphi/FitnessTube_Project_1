@@ -1,0 +1,103 @@
+
+h4 {
+    @include clean-font
+}
+
+body {
+
+    background-color: #eee
+}
+
+.container {
+
+    width:1000px;
+    height:200vh;
+    background-color: #fff;
+    margin:0 auto;
+    padding:0;
+  
+
+
+}
+
+header,section {
+
+    position: fixed;
+    width: 1000px;
+    height: 150px;
+    text-align:center;
+    /* background-color:white; */
+    
+}
+
+
+.logo {
+
+    width: 600px;
+}
+
+section{
+
+    top:150px;
+}
+
+main{
+
+    padding: 630px 18px 10px;
+}
+
+.thumb{
+
+    height:180px;
+    top: 20px;
+    background-color: red;
+    
+}
+article{
+
+    display:flex;
+    align-items: center;
+    padding: 8px 12px;
+
+  
+}
+
+.buttons{
+
+    top:600px;
+}
+
+header{
+
+    padding:0;
+}
+
+.details {
+
+    padding: 10px 22px;
+}
+
+p {
+    color:gray;
+   
+}
+
+.dashboard{
+
+    height:140px;
+    width:1000px;
+    background-color:rgb(146, 146, 209);
+    padding: 40px 18px 10px;
+    
+}
+
+#cartoon-view{
+
+    /* padding: 630px 18px 10px; */
+
+
+
+}
+
+
+}
