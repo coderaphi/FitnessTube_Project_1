@@ -26,9 +26,7 @@ $(document).ready(function () {
       var inputWater = $(".form-water").val()
       var inputCalories = $(".form-calories").val()
 
-      console.log(inputWeight)
-      console.log(inputWater)
-      console.log(inputCalories)
+     
 
       // CREATE OBJECT "fitnessTubeData", WHERE USER INPUT DATA ARE PROPERTY.VALUES OF THE OBJECT
       var fitnessTubeData = {
@@ -57,9 +55,9 @@ $(document).ready(function () {
    database.ref().on("child_added", function (snapshot) {
 
       // PRINT THE VALUES TO THE CONSOLE LOG 
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
 
-      console.log(context);
+      
 
 
       // STORE VALUES OF THE VARIOUS PROPERTIES OF "fitnessTubeData" OBJECT IN THE DATABASE
