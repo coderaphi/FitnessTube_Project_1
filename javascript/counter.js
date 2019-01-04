@@ -13,7 +13,6 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-
 // REGULAR EXPRESSION TO EXTRACT NUMBERS ONLY
 const number_regex = /(\d+)/gm;
 
@@ -31,6 +30,7 @@ function getInt(val) {
 $(document).ready(function () {
 
    // CREATE OBJECT "context" AS A PLACE HOLDER FOR TOTAL ACCUMULATING VALUES
+
    const context = {
       water: 0,
       caloriesBurnt: 0,
@@ -63,12 +63,6 @@ $(document).ready(function () {
       $(".inputDataWater")[0].reset();
    });
 
-   // +++++++++++++++++++++++++++++++++++++CALORIES+++++++++++++++++++++++++++++++++++++//
-   // $('#button-SS').on('click', function (event) {
-   //    event.preventDefault();
-   // });
-
-
    // CREATE ON CLICK EVENT FUNCTION TO RECORD CALORIES BURNT
    $("#button-addon-calories").on("click", function (event) {
 
@@ -96,7 +90,7 @@ $(document).ready(function () {
       $(".inputDataCalories")[0].reset();
 
    });
-   // +++++++++++++++++++++++++++++++++++++CALORIES+++++++++++++++++++++++++++++++++++++//
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
    //+++++++++++++++++++++++++++++++++++++++++TIMER+++++++++++++++++++++++++++++++++++++//
 
@@ -107,7 +101,6 @@ $(document).ready(function () {
       $('#button-SS').on("click", function () {
          if (counter) {
             clearInterval(counter);
-            console.log(secondCounter);
             // CREATE OBJECT "fitnessTubeData", WHERE USER INPUT DATA ARE PROPERTY.VALUES OF THE OBJECT
             var fitnessTubeData = {
                secondCounter: secondCounter,
@@ -115,12 +108,7 @@ $(document).ready(function () {
             };
             // PUSH OBJECT "fitnessTubeDate" TO FIREBASE
             database.ref().push(fitnessTubeData, function (err) {
-
-               console.log(secondCounter);
-
                if (!err) {
-                  // context['stopWatch'] = context['stopWatch'] + secondCounter;
-
                   $(".displayTimeTotal").text(moment().hour(0).minute(0).second(context['stopWatch']).format('HH : mm : ss'));
                   // $(".displayTime").text(secondCounter);
                   displayTime();
@@ -128,7 +116,7 @@ $(document).ready(function () {
                   counter = undefined;
                }
             });
-            
+
          } else {
             counter = setInterval(displayTime, 1000);
          }
@@ -138,7 +126,7 @@ $(document).ready(function () {
    function displayTime() {
       $('.displayTime').text(moment().hour(0).minute(0).second(secondCounter++).format('HH : mm : ss'));
    }
-   //+++++++++++++++++++++++++++++++++++++++++TIMER+++++++++++++++++++++++++++++++++++++//
+   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
    database.ref().on("child_added", function (snapshot) {
 
