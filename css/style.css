@@ -137,7 +137,7 @@ p {
 }
 
 .bg-aqua {
-    background-color: #00c0ef !important;
+    background-color:#016699!important;
 }
 
 .bg-yellow {
@@ -145,7 +145,7 @@ p {
 }
 
 .bg-green {
-    background-color: #00a65a !important;
+    background-color: #99cccc !important;
 }
 
 .bg-red {
@@ -186,7 +186,8 @@ p {
     z-index: 0;
     font-size: 20px;
     color: rgba(0,0,0,0.15);
-    margin-left: 10px;
+    margin-left: 30px;
+    
 }
 
 #workOut-name {
@@ -208,6 +209,7 @@ p {
 .box>.footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
     padding: 5px 0;
     color: #fff;
@@ -229,23 +231,26 @@ p {
 
 .box .summary {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-column-gap: 20px;
+}
+.label{
+    margin-bottom: 5px;
 }
 .displayWater{
     color: white;
     text-align: right;
-    padding-right: 10px;
+    margin-right: 30px;
 }
 .displayCalories{
     color: white;
     text-align: right;
-    padding-right: 10px;
+    margin-right: 30px;
 }
 .displayTimeTotal{
     color: white;
     text-align: right;
-    padding-right: 10px;
+    margin-right: 30px;
 }
 
 #button-addon1{
