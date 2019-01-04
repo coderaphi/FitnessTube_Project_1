@@ -60,7 +60,7 @@ $(document).ready(function () {
    var url = 'https://www.googleapis.com/youtube/v3/playlistItems'
 
    $("#enterSite").on("click", function (){
-      $(".modal-wrapper").hide();
+      $(".modal-wrapper").remove();
    });
 
    $("#workOut-name").on("click", function () {
