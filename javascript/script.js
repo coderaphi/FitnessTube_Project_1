@@ -116,9 +116,10 @@ function mainVid(id) {
 
    $('#video').html(`
 
-
-<iframe width="1000" height="405" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+   <div class="video-responsive">
+<iframe width="420" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen></iframe>
+</div>
 
 `)
 }
