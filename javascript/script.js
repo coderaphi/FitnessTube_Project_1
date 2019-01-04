@@ -6,6 +6,8 @@
 
 var fitnessArray = ["HIIT", "KICKBOXING", "PILATES", "CROSSFIT", "YOGA", " WEIGHT TRAINING", "SPINNING", "ZUMBA ", "CALASTHENICS"];
 var channelIdArray = ["UCAxW1XT0iEJo0TYlRfn6rYQ", "UCa9_TpiSkqYwcr35uh5N7Og", "UCBINFWq52ShSgUFEoynfSwg", "UCUSI-3qy0rx0b3f-thKqNcA", "UCFKE7WVJfvaHW5q283SxchA", "UCe0TLA0EsQbE-MjuHXevj2A", "UCuTaETsuCOkJ0H_GAztWt0Q", "UC4GTYUQEZSQ-28KNX7I0ngw", "UCZIIRX8rkNjVpP-oLMHpeDw"]
+var imageSrc = ["assets/images/image1.jpeg","assets/images/image2.jpeg","assets/images/image3.jpeg","assets/images/image4.jpeg","assets/images/image5.jpeg","assets/images/image6.jpeg","assets/images/image7.jpeg","assets/images/image8.jpeg","assets/images/image9.jpeg"]
+
 
 
 
@@ -19,13 +21,15 @@ function createButtons() {
 
       var workoutName = fitnessArray[i];
       var channelId = channelIdArray[i];
+      var imgButton = imageSrc[i];
 
       var buttonCreate = $(
-         '<button/>',
+         '<div/>',
          {
             class: "workoutTitle",
             'data-name': workoutName,
             'channelId': channelId,
+            'style':`background-image:url(${imgButton});background-size:cover;`,
             click: alertWorkoutName
          }
       );
@@ -56,9 +60,9 @@ $(document).ready(function () {
 
 
    $("#workOut-name").on("click", function () {
-      $("#workOut-name").fadeOut(1000)
-      $("article").fadeIn(1000)
-      $("#return").fadeIn(2000)
+      $("#workOut-name").fadeOut()
+      $("article").fadeIn()
+      $("#return").fadeIn()
      
 
 
@@ -66,9 +70,9 @@ $(document).ready(function () {
 
 
    $("#return").on("click", function () {
-      $("#workOut-name").fadeIn(1000)
-      $("#return").fadeOut(2000)
-      $("article").fadeOut(2000)
+      $("#workOut-name").fadeIn()
+      $("#return").fadeOut()
+      $("article").fadeOut()
 
    })
 
@@ -89,7 +93,8 @@ $(document).ready(function () {
 
 
 
-   loadVids()
+   // loadVids()
+   mainVid('vhcyvcbVBQQ');
 
 
 
