@@ -35,12 +35,12 @@
 </head>
 
 <body>
-
+    <button id="enterSite"></button>
     <div class="modal-wrapper">
 
         <div class="modal-content">
             <iframe width="1000" height="405" src="https://www.youtube.com/embed/KkeQJNtIDu8?controls=0&autoplay=1&modestbranding=1&autohide=1&showinfo=0" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                ></iframe>
+                >enter</iframe>
 
         </div>
 
@@ -68,6 +68,94 @@
 
         <div class=dashboard>
             <!-- CREATE DATA ENTRY CARD "ENTER DATA" -->
+
+            <div class="dashboard-buttons">
+
+                    <!----WATER INTAKE DASH BOARD ----->
+            
+                    <div class="box bg-aqua">
+                      <div class="displayWaterInput label"></div>
+                      <div class="icon">
+                        <i class="fas fa-tint"></i>
+                      </div>
+                      <div class="footer">
+                        <form class="inputDataWater">
+                          <div class="input-group">
+                            <input type="text" class="form-water text-center" placeholder="Enter Water Intake" aria-label="Recipient's Water Intake">
+                            <div class="input-group-append">
+                              <span class="input-group-text" id="button-addon-water"><i class="fas fa-check"></i></span>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+            
+                    <!--***************************** --->
+            
+                    <!------ CALORIES DASH BOARD -------->
+            
+                    <div class="box bg-yellow">
+                      <div class="displayCaloriesInput label"></div>
+                      <div class="icon">
+                        <i class="fas fa-burn"></i>
+                      </div>
+                      <div class="footer">
+                        <form class="inputDataCalories">
+                          <div class="input-group">
+                            <input type="text" class="form-calories text-center" placeholder="Enter Calories burned" aria-label="Recipient's Water Intake">
+                            <div class="input-group-append">
+                              <span class="input-group-text" id="button-addon-calories"><i class="fas fa-check"></i></span>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+            
+                    <!----***************************** --->
+            
+                    <!------ STOP WATCH DASH BOARD -------->
+            
+                    <div class="box bg-green">
+                      <div class="displayTime label"></div>
+                      <div class="icon">
+                        <i class="fas fa-stopwatch"></i>
+                      </div>
+                      <div class="footer">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-SS">Start/Stop</button>
+                      </div>
+                    </div>
+                    <!----***************************** --->
+            
+                    <!------- SUMMARY DASH BOARD ---------->
+            
+                    <div class="box bg-red">
+                      <div class="label">To Date Summary</div>
+                      <div class="summary">
+                        <div class="small-icon">
+                          <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="displayWater"></div>
+                      </div>
+            
+                      <div class="summary">
+                        <div class="small-icon">
+                          <i class="fas fa-burn"></i>
+                        </div>
+                        <div class="displayCalories"></div>
+                      </div>
+            
+                      <div class="summary">
+                        <div class="small-icon">
+                          <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <div class="displayTimeTotal"></div>
+                      </div>
+            
+                      <div></div>
+            
+                    </div>
+                    <!----***************************** --->
+                  </div>
         </div>
 
 

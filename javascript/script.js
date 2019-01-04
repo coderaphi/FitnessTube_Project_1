@@ -57,7 +57,9 @@ $(document).ready(function () {
    var playlistId = 'LLqjwF8rxRsotnojGl4gM0Zw'
    var url = 'https://www.googleapis.com/youtube/v3/playlistItems'
 
-
+   $("#enterSite").on("click"),function (){
+      $(".modal-wrapper ").hide()
+   }
 
    $("#workOut-name").on("click", function () {
       $("#workOut-name").fadeOut()
