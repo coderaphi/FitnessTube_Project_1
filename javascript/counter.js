@@ -1,8 +1,6 @@
 // Initialize Firebase
 
-
 newFunction();
-// $(".displayTimer").val("");
 var config = {
    apiKey: "AIzaSyDr1eJ25h6a_EpX_pwfZJnLvFmyiKPI5No",
    authDomain: "fitnesstube-1f1b3.firebaseapp.com",
@@ -15,86 +13,146 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-$(document).ready(function () {
- 
-   // CREATE ON CLICK EVENT FUNCTION 
-   $("#button-addon1").on("click", function (event) {
-   
-      event.preventDefault()
-      // STORE USER INPUT DATA 
-      var inputWeight = $(".form-weight").val()
-      var inputWater = $(".form-water").val()
-      var inputCalories = $(".form-calories").val()
+// REGULAR EXPRESSION TO EXTRACT NUMBERS ONLY
+const number_regex = /(\d+)/gm;
 
-     
+function getInt(val) {
+   if (!val) {
+      return 0;
+   }
+   const match = number_regex.exec(val);
+   if (match && match[0]) {
+      return parseInt(match[0]);
+   }
+   return 0;
+}
+
+$(document).ready(function () {
+
+   // CREATE OBJECT "context" AS A PLACE HOLDER FOR TOTAL ACCUMULATING VALUES
+
+   const context = {
+      water: 0,
+      caloriesBurnt: 0,
+      stopWatch: 0
+   };
+
+   // CREATE ON CLICK EVENT FUNCTION FOR RECORD WATER INTAKE
+   $("#button-addon-water").on("click", function (event) {
+
+      event.preventDefault();
+      var inputWater = $(".form-water").val();
 
       // CREATE OBJECT "fitnessTubeData", WHERE USER INPUT DATA ARE PROPERTY.VALUES OF THE OBJECT
       var fitnessTubeData = {
-         weight: inputWeight,
          waterIntake: inputWater,
+         dateAdded: firebase.database.ServerValue.TIMESTAMP
+      };
+
+      // PUSH OBJECT "fitnessTubeDate" TO FIREBASE
+      database.ref().push(fitnessTubeData, function (err) {
+
+         if (!err) {
+            context['water'] = context['water'] + getInt(inputWater);
+
+            $(".displayWater").text(context['water']);
+            $(".displayWaterInput").text(inputWater);
+         }
+      });
+      // RESET DATA FIELDS ONCE THE "submit" BUTTON IS CLICKED
+      $(".inputDataWater")[0].reset();
+   });
+
+   // CREATE ON CLICK EVENT FUNCTION TO RECORD CALORIES BURNT
+   $("#button-addon-calories").on("click", function (event) {
+
+      event.preventDefault()
+      var inputCalories = $(".form-calories").val()
+
+
+      // CREATE OBJECT "fitnessTubeData", WHERE USER INPUT DATA ARE PROPERTY.VALUES OF THE OBJECT
+      var fitnessTubeData = {
          caloriesBurnt: inputCalories,
          dateAdded: firebase.database.ServerValue.TIMESTAMP
       }
       // PUSH OBJECT "fitnessTubeDate" TO FIREBASE
-      database.ref().push(fitnessTubeData)
+      database.ref().push(fitnessTubeData, function (err) {
+
+         if (!err) {
+            context['caloriesBurnt'] = context['caloriesBurnt'] + getInt(inputCalories);
+
+            $(".displayCalories").text(context['caloriesBurnt']);
+            $(".displayCaloriesInput").text(inputCalories);
+         }
+      });
 
       // RESET DATA FIELDS ONCE THE "submit" BUTTON IS CLICKED
-      $(".inputData")[0].reset();
+      $(".inputDataCalories")[0].reset();
 
-      
    });
-   // CREATE OBJECT "context" AS A PLACE HOLDER FOR TOTAL ACCUMULATING VALUES
-   const context = {
-      caloriesBurnt: 0,
-      weight: 0,
-      water: 0
-   };
-   // REGULAR EXPRESSION TO EXTRACT NUMBERS ONLY
-   const number_regex = /(\d+)/gm;
+   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+   //+++++++++++++++++++++++++++++++++++++++++TIMER+++++++++++++++++++++++++++++++++++++//
+
+   var counter;
+   var secondCounter = 0;
+
+   $(document).ready(function stopWatch() {
+      $('#button-SS').on("click", function () {
+         if (counter) {
+            clearInterval(counter);
+            // CREATE OBJECT "fitnessTubeData", WHERE USER INPUT DATA ARE PROPERTY.VALUES OF THE OBJECT
+            var fitnessTubeData = {
+               secondCounter: secondCounter,
+               dateAdded: firebase.database.ServerValue.TIMESTAMP
+            };
+            // PUSH OBJECT "fitnessTubeDate" TO FIREBASE
+            database.ref().push(fitnessTubeData, function (err) {
+               if (!err) {
+                  $(".displayTimeTotal").text(moment().hour(0).minute(0).second(context['stopWatch']).format('HH : mm : ss'));
+                  // $(".displayTime").text(secondCounter);
+                  displayTime();
+                  secondCounter = 0;
+                  counter = undefined;
+               }
+            });
+
+         } else {
+            counter = setInterval(displayTime, 1000);
+         }
+
+      });
+   });
+   function displayTime() {
+      $('.displayTime').text(moment().hour(0).minute(0).second(secondCounter++).format('HH : mm : ss'));
+   }
+   //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
    database.ref().on("child_added", function (snapshot) {
 
-      // PRINT THE VALUES TO THE CONSOLE LOG 
-      // console.log(snapshot.val());
-
-      
-
-
       // STORE VALUES OF THE VARIOUS PROPERTIES OF "fitnessTubeData" OBJECT IN THE DATABASE
-      var dbWeight = snapshot.val().weight;
-      var dbWater = snapshot.val().waterIntake;
-      var dbCalories = snapshot.val().caloriesBurnt;
+      var dbWater = getInt(snapshot.val().waterIntake);
+      var dbCalories = getInt(snapshot.val().caloriesBurnt);
+      var dbSecondCounter = snapshot.val().secondCounter;
 
-      // ONLY ADD WHEN VALUE IS PRESENT
-      if (dbCalories) {
-         context['caloriesBurnt'] = context['caloriesBurnt'] + parseInt(dbCalories);
-      }
-      // MATCH[0] = FIRST GROUP OF NUMBERS
-      if (dbWeight) {
-         const match = number_regex.exec(dbWeight);
-         if(match && match[0]) {
-            context['weight'] = context['weight'] + parseInt(match[0]);
-         }
+      if (dbSecondCounter) {
+         dbSecondCounter = parseInt(dbSecondCounter);
+      } else {
+         dbSecondCounter = 0;
       }
 
-      if (dbWater) {
-         const match = number_regex.exec(dbWater);
-         if(match && match[0]) {
-            context['water'] = context['water'] + parseInt(match[0]);
-         }
-      }
+      this['caloriesBurnt'] = this['caloriesBurnt'] + dbCalories;
+      this['water'] = this['water'] + dbWater;
+      this['stopWatch'] = this['stopWatch'] + dbSecondCounter;
 
-
-      $(".displayWeight").text(context['weight']);
-      $(".displayWater").text(context['water']);
-      $(".displayCalories").text(context['caloriesBurnt']);
-   });
+      $(".displayWater").text(this['water']);
+      $(".displayCalories").text(this['caloriesBurnt']);
+      $(".displayTimeTotal").text(moment().hour(0).minute(0).second(this['stopWatch']).format('HH : mm : ss'));
+   }, (t) => console.log(t), context);
 });
 
 function newFunction() {
-   $(".displayWeight").val("");
    $(".displayWater").val("");
    $(".displayCalories").val("");
 }
-// function (errorObject) {
-//    console.log("The read failed: " + errorObject.code);
+
