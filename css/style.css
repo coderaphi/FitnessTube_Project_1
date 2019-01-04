@@ -153,6 +153,10 @@ p {
     border-radius: 10px;
 }
 
+.box .label {
+    text-align: center;
+}
+
 .box div:first-child {
     color: #fff;
 }
@@ -164,6 +168,7 @@ p {
     z-index: 0;
     font-size: 35px;
     color: rgba(0,0,0,0.15);
+    text-align: center;
 }
 
 .box .small-icon {
@@ -173,6 +178,7 @@ p {
     z-index: 0;
     font-size: 20px;
     color: rgba(0,0,0,0.15);
+    margin-left: 10px;
 }
 
 #workOut-name {
