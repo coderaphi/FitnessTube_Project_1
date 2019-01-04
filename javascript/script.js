@@ -93,26 +93,13 @@ $(document).ready(function () {
 
    }
 
-
-
-   // loadVids()
    mainVid('vhcyvcbVBQQ');
-
-
-
-   function loadVids() {
-      $.getJSON(url, options, function (info) {
-
-         var id = info.items[0].snippet.resourceId.videoId
-
-         mainVid(id);
-
-      });
-   }
 
 });
 
 function mainVid(id) {
+
+   $(window).scrollTop(0);
 
    $('#video').html(`
 
