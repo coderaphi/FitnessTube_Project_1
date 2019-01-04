@@ -11,7 +11,6 @@ body {
 .container {
 
     max-width:1000px;
-    /* height:68vh; */
     background-color: #fff;
     margin:0 auto;
     padding:0;
@@ -24,11 +23,9 @@ body {
 
 header {
 
-    /* position: fixed; */
-    /* width: 1000px; */
-    /* height: 10px; */
+
     text-align:center;
-    /* background-color:white; */
+  
 
 
 
@@ -37,26 +34,21 @@ header {
 
 
 #button-holder{
-    /* width: 1000px; */
+    
     text-align:center;
 
 
 }
 
 
-.logo {
 
-    /* width: 600px; */
-}
 
 main{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1000px;
-    /* margin-left: 20%;
-    margin-top:15%; */
-    /* padding: 30px 762px 10px; */
+    max-width: 1000px;
+   
 }
 
 .thumb{
@@ -68,10 +60,8 @@ main{
 }
 article{
 
-    /* display:flex; */
     align-items: center;
-    padding: 8px 12px;
-    /* display: none; */
+    padding: 0px 12px;
     width: 333px; 
 
   
@@ -158,7 +148,7 @@ p {
     justify-content: space-between;
     width: 100%;
     height: 120px;
-    /* border-radius: 10px; */
+   
 }
 
 .box .label {
@@ -259,7 +249,7 @@ p {
 
  #return{
     
-    /* margin-top: 180px; */
+    
     text-align:center;
 
 
@@ -283,8 +273,18 @@ p {
     filter: grayscale(100%); 
  }
 
+
+ .workoutTitle:hover { 
+   /* transition-delay: 200ms;   */
+    
+    transform: scale(1.1); 
+    background: #e1e1e1;
+    border-top: 1px solid #d0d0d0;
+
+}
+
  .modal-wrapper {
-     display: none;
+     display: flex;
      z-index: 10000;
      position: fixed;
      justify-content: center;
@@ -295,11 +295,14 @@ p {
  }
 
  .modal-content {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
      opacity: 1.0;
      width: 1000px;
      margin: auto;
      z-index: 10000;
-     background-color: rgba(254, 254, 254, 1);
+     background-color: rgba(0, 0, 0, 0.9);
  }
 
  .video-responsive{

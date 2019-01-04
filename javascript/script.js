@@ -45,7 +45,9 @@ function createButtons() {
 
 
 $(document).ready(function () {
-   createButtons()
+   createButtons();
+
+   
 
    //https://medium.com/@feldman238/the-quickest-and-easiest-preloader-ever-9efa975e1a50   having issues getting a preloader
    $('.preloader').fadeOut('slow');
@@ -57,9 +59,9 @@ $(document).ready(function () {
    var playlistId = 'LLqjwF8rxRsotnojGl4gM0Zw'
    var url = 'https://www.googleapis.com/youtube/v3/playlistItems'
 
-   $("#enterSite").on("click"),function (){
-      $(".modal-wrapper ").hide()
-   }
+   $("#enterSite").on("click", function (){
+      $(".modal-wrapper").hide();
+   });
 
    $("#workOut-name").on("click", function () {
       $("#workOut-name").fadeOut()
