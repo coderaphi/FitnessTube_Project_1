@@ -65,6 +65,14 @@ article{
     width: 333px; 
 
   
+}   
+
+article:hover{
+
+  background-color:rgb(255, 153, 0);
+  transform: scale(1.1)
+
+  
 }
 
 .details_text {
@@ -116,7 +124,7 @@ p {
 .dashboard-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    grid-gap: 3px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -213,6 +221,12 @@ p {
 
 .btn-outline-secondary {
     background-color: #fff;
+    
+}
+
+#button-SS{
+
+    padding:1.6px;
 }
 
 .btn {
@@ -251,6 +265,10 @@ p {
     
     
     text-align:center;
+    margin-bottom: 8px;
+    background-color: #016699;
+    border:none;
+    color:white;
 
 
  }
@@ -275,7 +293,7 @@ p {
 
 
  .workoutTitle:hover { 
-   /* transition-delay: 200ms;   */
+
     
     transform: scale(1.1); 
     background: #e1e1e1;
@@ -317,4 +335,21 @@ p {
     height:100%;
     width:100%;
     position:absolute;
+}
+
+#enterSite{
+
+    background-color:rgba(255, 0, 0, 0.824);
+    width:200px;
+    height:30px;
+    color:white;
+    border:none;
+
+
+}
+
+#enterSite:hover{
+
+    background-color:rgb(255, 140, 0);
+    transform: scale(1.1);
 }

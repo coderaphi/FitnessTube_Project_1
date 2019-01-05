@@ -4,7 +4,7 @@
 
 
 
-var fitnessArray = ["HIIT", "KICKBOXING", "PILATES", "CROSSFIT", "YOGA", " WEIGHT TRAINING", "SPINNING", "ZUMBA ", "CALASTHENICS"];
+var fitnessArray = ["HIIT", "KICKBOXING", "PILATES", "CROSSFIT", "YOGA", " WEIGHT TRAINING", "SPINNING", "ZUMBA ", "CALISTHENICS"];
 var channelIdArray = ["UCAxW1XT0iEJo0TYlRfn6rYQ", "UCa9_TpiSkqYwcr35uh5N7Og", "UCBINFWq52ShSgUFEoynfSwg", "UCUSI-3qy0rx0b3f-thKqNcA", "UCFKE7WVJfvaHW5q283SxchA", "UCe0TLA0EsQbE-MjuHXevj2A", "UCuTaETsuCOkJ0H_GAztWt0Q", "UC4GTYUQEZSQ-28KNX7I0ngw", "UCZIIRX8rkNjVpP-oLMHpeDw"]
 var imageSrc = ["assets/images/image1.jpeg","assets/images/image2.jpeg","assets/images/image3.jpeg","assets/images/image4.jpeg","assets/images/image5.jpeg","assets/images/image6.jpeg","assets/images/image7.jpeg","assets/images/image8.jpeg","assets/images/image9.jpeg"]
 
